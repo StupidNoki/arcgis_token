@@ -1,7 +1,7 @@
 import requests
 
 
-def get_arcgis_token_post(username, password, server_url):
+def get_arcgis_token_post(username, password, server_url, referer):
     # 构建token请求的URL
     token_url = f"{server_url}/generateToken"
 
@@ -16,7 +16,7 @@ def get_arcgis_token_post(username, password, server_url):
         'password': password,
         'f': 'json',
         'client': 'HTTP referer',
-        'referer': '',
+        'referer': referer,
         'expiration': 512640
     }
 
@@ -37,10 +37,10 @@ def get_arcgis_token_post(username, password, server_url):
 
 
 # 替换以下变量值为你的用户名、密码和服务器URL
-your_username = 'lvnong'
-your_password = 'gongda@888'
-your_server_url = "https://gis.airohit.com/arcgis/tokens"
-your_referer = "https://agro.airoteach.cn"
+your_username = ''
+your_password = ''
+your_server_url = ""
+your_referer = ""
 
 # 获取并打印token
 token = get_arcgis_token_post(your_username, your_password, your_server_url)
